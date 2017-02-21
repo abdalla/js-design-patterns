@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cat clicker</title>
+    </div>
+
+    <style>
+        html {
+            font-size: 100px;
+        }
+
+        div.cat {
+            cursor: pointer
+        }
+
+        img {
+            height: 500px;
+            width: 600px;
+        }
+
+        body {
+            font-family: sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+            background-color: #282828;
+            background-size: 16px 16px;
+            background-position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='cats'>
+
+
+    <script>
+        let cat = {
+            name: '',
+            img: '',
+            clicks: 0,
+            click: function() {
+                this.clicks++;
+            }
+        };
+
+        let listOfCats = [];
+
+        let cat1 = Object.create(cat);
+        cat1.name = 'Mussum';
+        cat1.img = 'http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg';
+        listOfCats.push(cat1);
+
+        let cat2 =  Object.create(cat);
+        cat2.name = 'Cacildis';
+        cat2.img = 'https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg';
+        listOfCats.push(cat2);
+
+        let div = document.getElementById('cats');
+
+        let html = listOfCats.map(c => {
+            return `<div class='cat' data-name=${c.name}><img src='${c.img}' /><div class="counter">${c.name} - likes: ${c.clicks}</div></div>`;
+        }).join('');
+
+        div.innerHTML = html;
+
+        let allCatsHtml = div.querySelectorAll('.cat');
+
+        allCatsHtml.forEach(cat => cat.addEventListener('click', incrementCounter));
+
+        function incrementCounter(e) {
+            let currentCat = listOfCats.find(c => c.name === this.dataset.name);
+            let counterDiv = this.querySelector('.counter');
+
+            if(currentCat) {
+                currentCat.click();
+                counterDiv.innerHTML = `${currentCat.name} - likes: ${currentCat.clicks}`;
+            }
+        };
+    </script>
+</body>
+</html>
