@@ -37,29 +37,10 @@
 
 <body>
     <div id='cats'>
-
+    <script src="cats.js"></script>
 
     <script>
-        let cat = {
-            name: '',
-            img: '',
-            clicks: 0,
-            click: function() {
-                this.clicks++;
-            }
-        };
-
-        let listOfCats = [];
-
-        let cat1 = Object.create(cat);
-        cat1.name = 'Mussum';
-        cat1.img = 'http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg';
-        listOfCats.push(cat1);
-
-        let cat2 =  Object.create(cat);
-        cat2.name = 'Cacildis';
-        cat2.img = 'https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg';
-        listOfCats.push(cat2);
+        const listOfCats = seedCatList(false);
 
         let div = document.getElementById('cats');
 

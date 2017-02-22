@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cat clicker - Premium</title>
+    </div>
+
+    <style>
+        html {
+            font-size: 100px;
+        }
+
+        li, div {
+            cursor: pointer
+        }
+
+        img {
+            height: 500px;
+            width: 600px;
+        }
+
+        body {
+            font-family: sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+            background-color: #282828;
+            background-size: 16px 16px;
+            background-position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="body-content">
+        <div id='cats'></div>
+        <div id='cat-content'></div>
+    </div>
+
+    <script src="cats.js"></script>
+
+    <script>
+        const listOfCats = seedCatList(true);
+
+        function getListOfCats() {
+            let html = '<ul>'
+            html += listOfCats.map( c=> {
+                return `<li class='lst-cat' data-name='${c.name}'>${c.name}</li>`;
+            }).join('');
+            html += '</ul>'
+
+            return html;
+        }
+
+        function getCurrentHTML(cat) {
+            return `<img class='cat-img' src='${cat.img}' data-name=${cat.name} /><div class="counter">${cat.name} - likes: ${cat.clicks}</div>`
+        }
+
+        let div = document.getElementById('cats');
+        div.innerHTML = getListOfCats();
+
+        let allCatsHtml = div.querySelectorAll('.lst-cat');
+        allCatsHtml.forEach(cat => cat.addEventListener('click', showCat));
+
+
+        let currentCat = {};
+        function showCat() {
+            currentCat = listOfCats.find(c => c.name === this.dataset.name);
+            let catContent = document.getElementById('cat-content');
+
+            if (currentCat) {
+                catContent.innerHTML = getCurrentHTML(currentCat);
+                const catImg = catContent.querySelector('.cat-img');
+                if(catImg) {
+                    catImg.addEventListener('click', likerIncrementer);
+                }
+            }
+        };
+
+        function likerIncrementer() {
+            if (currentCat) {
+                currentCat.click();
+                let catContent = document.getElementById('cat-content');
+                let counterDiv = catContent.querySelector('.counter');
+
+                if(counterDiv) {
+                    counterDiv.innerHTML = `${currentCat.name} - likes: ${currentCat.clicks}`;
+                }
+            }
+        };
+    </script>
+</body>
+
+
+
+</html>
