@@ -11,10 +11,25 @@
         <h2 id="cat-name"></h2>
         <div class="counter" id="cat-count"></div>
         <img id="cat-img" src="" alt="cute cat">
+        <button id="btnAdmin">Admin</button>
     </div>
-    <!--<script data-main="../octopus/cat.js" src="../lib/require.js"></script>-->
-    <script data-main="../view/catListView.js" src="../lib/require.js"></script>
-    <!--<script src="../view/catListView.js"></script>-->
-    <!--<script src="../view/catView.js"></script>-->
+
+    <div id="cat-edit">
+        <p>
+            <span>Name: </span><input id="name" type="text" />
+        </p>
+        <p>
+            <span>Img: </span><input id="img" type="text" />
+        </p>
+        <p>
+            <span>Clicks: </span><input id="clicks" type="text" />
+        </p>
+        <p>
+            <button id="btnCancel">Cancel</button>
+            <button id="btnSave">Save</button>
+        </p>
+    </div>
+    <!--<script data-main="../view/catListView.js" src="../lib/require.js"></script>-->
+    <script data-main="../octopus/cat.js" src="../lib/require.js"></script>
 </body>
 </html>

@@ -1,14 +1,16 @@
 define(function (require) {
-    const octopus = require('../octopus/cat.js');
+    //const octopus = require('../octopus/cat.js');
     const catView = require('./catView.js');
-
+    let octopus = {};
     const catListView = {
-        init: function () {
+        init: function (octo) {
+            octopus = octo;
+
             this.catListElem = document.getElementById('cat-list');
 
             this.render();
 
-            catView.init();
+            //catView.init();
         },
 
         render: function () {
@@ -34,7 +36,7 @@ define(function (require) {
         }
     };
 
-    catListView.init();
+    //catListView.init();
 
     return catListView
 });
