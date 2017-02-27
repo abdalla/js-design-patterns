@@ -1,4 +1,4 @@
-let VierModel = function () {
+let Cat = function() {
     this.clickCount = ko.observable(0);
     this.name = ko.observable('Mussum');
     this.imgSrc = ko.observable('http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg');
@@ -12,9 +12,13 @@ let VierModel = function () {
             return 'Teen';
         }
     }, this);
+}
+
+let VierModel = function() {
+    this.cat = ko.observable( new Cat() );
 
     this.incrementCounter = function() {
-        this.clickCount(this.clickCount() + 1);
+        this.cat().clickCount(this.cat().clickCount() + 1);
     };
 };
 
