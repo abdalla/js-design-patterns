@@ -18,7 +18,7 @@ let VierModel = function() {
     this.cat = ko.observable( new Cat() );
 
     this.incrementCounter = function() {
-        this.cat().clickCount(this.cat().clickCount() + 1);
+        this.clickCount(this.clickCount() + 1);
     };
 };
 
