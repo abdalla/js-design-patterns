@@ -19,9 +19,11 @@ In other words, I can change my view here without disturbing my model. Or I can 
 OCTOPUS = **C** of MVC, **VM** of MVVM, **P** of MVP and * of MV**(*)** etc..
 
 ##EXAMPLES OF FRAMEWORKS##
-KNOCKOUT - MVVM
-ANGULAR - MVC
-BACKBONE - MV*
+*KNOCKOUT - MVVM*
+
+
+
+*BACKBONE - MV**
 
 ##CONCLUSION##
 Fundamentally, the C, VM, P, and asterisk are all solving the same problem, separating our model from our view.
