@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Cat Clicker</title>
+    <link rel="stylesheet" href="../content/css/cat.css">
 </head>
 <body>
+    <div id="cat-list">
+        <span>Cats:</span>
+        <ul data-bind="foreach: cats">
+            <li data-bind="text: name, click: $parent.setCurrentCat"></li>
+        </ul>
+    </div>
+
     <div id="cat" data-bind="with: cat">
 
         <h2 id="cat-name" data-bind="text: name" ></h2>
