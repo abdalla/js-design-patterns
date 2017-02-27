@@ -21,7 +21,7 @@ OCTOPUS = **C** of MVC, **VM** of MVVM, **P** of MVP and * of MV**(*)** etc..
 ##EXAMPLES OF FRAMEWORKS##
 *KNOCKOUT - MVVM*
 
-
+*ANGULAR - MVC*
 
 *BACKBONE - MV**
 
